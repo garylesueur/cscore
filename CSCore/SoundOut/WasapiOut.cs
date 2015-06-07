@@ -172,7 +172,8 @@ namespace CSCore.SoundOut
             set
             {
                 if (value <= 0)
-                    throw new ArgumentOutOfRangeException("value");
+                    return;
+                    // throw new ArgumentOutOfRangeException("value");
                 _latency = value;
             }
         }

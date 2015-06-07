@@ -342,7 +342,10 @@ namespace InlineILCompiler
                     // reassemble code
                     //
                     Console.WriteLine("Attempting to assemble IL code...");
-                    string ilasm_args = string.Format("\"{0}\" {2} /output=\"{1}\"", disasmFile, Target, UserILAsmArguments);
+
+                    var key = @"C:\dev\cscore\CSCore\cscore.snk";
+
+                    string ilasm_args = string.Format("\"{0}\" {2} /KEY=\"{3}\" /output=\"{1}\"", disasmFile, Target, UserILAsmArguments, key);
                     Console.WriteLine("ilasm " + ilasm_args);
                     if (!Run(Path.Combine(FrameworkDirectory, "ilasm.exe"), ilasm_args))
                         return 1;
